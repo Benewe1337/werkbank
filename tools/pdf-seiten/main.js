@@ -131,7 +131,6 @@ mountDrop($("#drop"), {
   accept: ".pdf,application/pdf",
   multiple: false,
   label: "PDF hier ablegen",
-  hint: "eine Datei",
   onRejected: rejectInto(jobs, "PDF"),
   onFiles: async ([file]) => {
     closeCurrent();

@@ -143,7 +143,6 @@ async function runQuery() {
 mountDrop($("#drop"), {
   accept: ACCEPT,
   label: "CSV-, Parquet- oder JSON-Dateien hier ablegen",
-  hint: "jede Datei wird eine Tabelle",
   onRejected: (file) => showError(`${file.name}: Passt nicht (erwartet: CSV, Parquet oder JSON).`),
   onFiles: async (files) => {
     errorBox.hidden = true;

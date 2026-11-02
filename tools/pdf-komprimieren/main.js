@@ -39,7 +39,6 @@ function settings() {
 mountDrop($("#drop"), {
   accept: ".pdf,application/pdf",
   label: "PDFs hier ablegen",
-  hint: "mehrere gehen auch",
   onRejected: rejectInto(jobs, "PDF"),
   onFiles: (files) =>
     processEach(files, jobs, async (file, job) => {

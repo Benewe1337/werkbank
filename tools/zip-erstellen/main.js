@@ -60,7 +60,6 @@ function render() {
 
 const drop = mountDrop($("#drop"), {
   label: "Dateien oder Ordner hier ablegen",
-  hint: "mehrere gehen auch",
   onFiles: (files) => add(files.map((file) => ({ path: file.webkitRelativePath || file.name, file }))),
 });
 

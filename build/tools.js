@@ -32,8 +32,7 @@ export function renderToolIndex(tools) {
     const links = items
       .map(
         (t) =>
-          `<li><a href="/tools/${t.id}/"><span class="tool-title">${escape(t.title)}</span>` +
-          `<span class="tool-summary">${escape(t.summary)}</span></a></li>`,
+          `<li><a href="/tools/${t.id}/"><span class="tool-title">${escape(t.title)}</span></a></li>`,
       )
       .join("");
     return `<section class="group"><h2>${escape(group)}</h2><ul>${links}</ul></section>`;

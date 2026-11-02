@@ -46,7 +46,6 @@ const run = repeatable($("#again"), (files) =>
 mountDrop($("#drop"), {
   accept: ".heic,.heif,image/heic,image/heif",
   label: "HEIC-Fotos hier ablegen",
-  hint: "mehrere gehen auch",
   onRejected: rejectInto(jobs, "HEIC oder HEIF"),
   onFiles: run,
 });

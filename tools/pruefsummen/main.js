@@ -95,7 +95,6 @@ async function hashFile(file) {
 
 mountDrop($("#drop"), {
   label: "Dateien hier ablegen",
-  hint: "beliebig groß, mehrere gehen auch",
   onFiles: async (files) => {
     for (const file of files) await hashFile(file);
   },

@@ -39,7 +39,6 @@ qualityText();
 mountDrop($("#drop"), {
   accept: VIDEO_ACCEPT,
   label: "Video hier ablegen",
-  hint: "mehrere gehen auch, sie laufen nacheinander",
   onRejected: rejectInto(jobs, "Video"),
   onFiles: (files) =>
     processEach(files, jobs, async (file, job) => {

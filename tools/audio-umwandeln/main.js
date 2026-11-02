@@ -27,7 +27,6 @@ syncBitrate();
 mountDrop($("#drop"), {
   accept: `${AUDIO_ACCEPT},${VIDEO_ACCEPT}`,
   label: "Audio oder Video hier ablegen",
-  hint: "mehrere gehen auch",
   onRejected: rejectInto(jobs, "Audio- oder Videodatei"),
   onFiles: (files) =>
     processEach(files, jobs, async (file, job) => {

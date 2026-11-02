@@ -39,7 +39,6 @@ mountDrop($("#drop"), {
   accept: VIDEO_ACCEPT,
   multiple: false,
   label: "Video hier ablegen",
-  hint: "eins nach dem anderen",
   onRejected: rejectInto(jobs, "Video"),
   onFiles: async ([next]) => {
     preview?.destroy();

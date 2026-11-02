@@ -64,7 +64,6 @@ async function process(name, text, job) {
 mountDrop($("#drop"), {
   accept: ".svg,image/svg+xml",
   label: "SVG-Dateien hier ablegen",
-  hint: "mehrere gehen auch",
   onRejected: rejectInto(jobs, "SVG"),
   onFiles: (files) => processEach(files, jobs, async (file, job) => process(file.name, await file.text(), job)),
 });

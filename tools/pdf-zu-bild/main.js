@@ -12,7 +12,6 @@ engineStatus($("#engine"), engine.ready);
 mountDrop($("#drop"), {
   accept: ".pdf,application/pdf",
   label: "PDF hier ablegen",
-  hint: "mehrere gehen auch",
   onRejected: rejectInto(jobs, "PDF"),
   onFiles: (files) =>
     processEach(files, jobs, async (file, job) => {

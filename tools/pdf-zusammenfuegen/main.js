@@ -60,7 +60,6 @@ function move(i, delta) {
 mountDrop($("#drop"), {
   accept: ".pdf,application/pdf",
   label: "PDFs hier ablegen",
-  hint: "Reihenfolge danach anpassen",
   onRejected: rejectInto(jobs, "PDF"),
   onFiles: (added) => {
     files = [...files, ...added];

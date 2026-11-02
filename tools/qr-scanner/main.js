@@ -46,7 +46,6 @@ function showFound(found, source) {
 mountDrop($("#drop"), {
   accept: "image/*,.png,.jpg,.jpeg,.webp,.gif,.bmp",
   label: "Bild mit Code hier ablegen",
-  hint: "Foto oder Screenshot",
   onRejected: (file) => (status.textContent = `${file.name}: Das ist kein Bild.`),
   onFiles: async (files) => {
     for (const file of files) {
