@@ -8,11 +8,13 @@ const ORDERS = JSON.stringify([
   { kunde: "Bernd; der Zweite", betrag: 100, datum: "2024-02-02" },
 ]);
 
-test("Tabellen mit SQL: CSV und JSON laden, verknüpfen, als CSV exportieren", async ({ page }) => {
+test("Tabellen mit SQL: CSV und JSON laden, verknüpfen, als CSV exportieren", async ({ page, baseURL }) => {
+  // Alles außer der eigenen Herkunft (lokal oder Live-Domain) gilt als fremde Anfrage.
+  const own = new URL(baseURL).origin;
   const requests = [];
   page.on("request", (r) => {
     const url = new URL(r.url());
-    if (!["localhost", "127.0.0.1"].includes(url.hostname) && !url.protocol.startsWith("blob") && !url.protocol.startsWith("data")) requests.push(r.url());
+    if (url.origin !== own && !url.protocol.startsWith("blob") && !url.protocol.startsWith("data")) requests.push(r.url());
   });
   const errors = await openTool(page, "tabellen-sql");
   await page.locator("#drop input").setInputFiles([file("Kunden Liste.csv", "text/csv", CSV_SEMICOLON), file("bestellungen.json", "application/json", ORDERS)]);

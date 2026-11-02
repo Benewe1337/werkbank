@@ -17,6 +17,9 @@ Neues Werkzeug anlegen: siehe [TOOLS.md](TOOLS.md). Design: [Design.md](Design.m
 
 ## Deployment
 
+Live: https://werkbank-tools.vercel.app (Vercel-Projekt `werkbank`, Deploy per `vercel deploy --prod`).
+Gegen die Live-Seite testen: `BASE_URL=https://werkbank-tools.vercel.app npx playwright test`.
+
 Vercel (statisch). `vercel.json` setzt CSP und Sicherheits-Header; dieselben Header gelten in `vite preview`,
 damit CSP-Probleme schon in den E2E-Tests auffallen.
 
