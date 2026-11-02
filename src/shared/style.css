@@ -85,6 +85,11 @@ a {
   white-space: nowrap;
 }
 
+/* Komponenten mit eigenem display (z. B. .field) dürfen das hidden-Attribut nicht aushebeln. */
+[hidden] {
+  display: none !important;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -237,6 +242,7 @@ h1 {
 .field.grow {
   flex: 1 1 16rem;
 }
+
 
 .field.check {
   display: flex;

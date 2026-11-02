@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Dokumente zwischen Markdown, Word, ODT, HTML, LaTeX, reStructuredText und EPUB umwandeln. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Dokumente umwandeln – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>Dokumente umwandeln</h1>
+      <p class="lede">
+        Markdown, Word, ODT, HTML, LaTeX, reStructuredText und EPUB ineinander umwandeln.
+        <em>Mit pandoc, direkt im Browser.</em>
+      </p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <div id="drop"></div>
+        <fieldset class="options">
+          <legend class="visually-hidden">Formate</legend>
+          <label class="field">
+            Eingabe
+            <select id="from">
+              <option value="auto">aus der Endung</option>
+            </select>
+          </label>
+          <label class="field">
+            Ausgabe
+            <select id="to"></select>
+          </label>
+        </fieldset>
+        <p class="hint" id="engine-row">
+          Pandoc ist rund 59 MB groß und wird erst geladen, wenn du eine Datei ablegst.
+        </p>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

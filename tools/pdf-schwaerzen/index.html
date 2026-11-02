@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Namen, Adressen und andere Begriffe in PDFs dauerhaft schwärzen. Der Text wird entfernt, nicht nur überdeckt. Ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>PDF schwärzen – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>PDF schwärzen</h1>
+      <p class="lede">Schwärzt Suchbegriffe auf allen Seiten. <em>Der Text darunter wird entfernt, nicht nur überdeckt.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <fieldset class="options">
+          <legend class="visually-hidden">Suchbegriffe</legend>
+          <label class="field grow">
+            Begriffe, einer pro Zeile
+            <textarea id="terms" rows="5" spellcheck="false" placeholder="Max Mustermann&#10;Musterstraße 1&#10;DE12 3456 7890"></textarea>
+          </label>
+        </fieldset>
+        <label class="field check"><input id="case" type="checkbox" /> Groß-/Kleinschreibung beachten</label>
+        <div id="drop"></div>
+        <p class="hint">
+          Gefunden wird nur Text, der in der PDF als Text steckt. Gescannte Seiten und Text in Bildern
+          bleiben unverändert. Prüf das Ergebnis vor dem Weitergeben.
+        </p>
+        <p id="engine"></p>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

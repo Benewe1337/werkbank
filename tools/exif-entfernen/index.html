@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Zeigt und entfernt EXIF-Daten, GPS-Position und andere Metadaten aus Fotos. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Metadaten entfernen – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>Metadaten entfernen</h1>
+      <p class="lede">Zeigt, was in deinen Fotos steckt, und nimmt es heraus. <em>Bei JPG, PNG und WebP bleibt das Bild selbst unverändert.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <fieldset class="options">
+          <legend class="visually-hidden">Einstellungen</legend>
+          <label class="field check">
+            <input id="keep-orientation" type="checkbox" checked />
+            Drehung behalten (nur bei JPG, als einziger Eintrag)
+          </label>
+        </fieldset>
+        <div id="drop"></div>
+        <p class="hint">Entfernt werden Kamera, Zeitpunkt, GPS-Position, Urheber, Kommentare und Vorschaubilder. Farbprofile bleiben. AVIF und HEIC werden dafür neu gespeichert, HEIC als JPG.</p>
+        <p id="engine"></p>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

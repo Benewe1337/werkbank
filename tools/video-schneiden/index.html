@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Einen Abschnitt aus einem Video ausschneiden, schnell ohne Neukodieren oder bildgenau. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Video schneiden – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>Video schneiden</h1>
+      <p class="lede">
+        Einen Abschnitt aus einem Video herauslösen.
+        <em>Start und Ende setzt du im Video oder per Zeitangabe.</em>
+      </p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <div id="drop"></div>
+        <div id="preview" hidden></div>
+        <form id="form" class="options" novalidate hidden>
+          <div class="field grow">
+            <label for="start">Start</label>
+            <span class="time-field">
+              <input id="start" type="text" inputmode="decimal" placeholder="0:00" autocomplete="off" />
+              <button id="take-start" class="button ghost" type="button" aria-label="Aktuelle Position als Start">Aktuelle Position</button>
+            </span>
+          </div>
+          <div class="field grow">
+            <label for="end">Ende</label>
+            <span class="time-field">
+              <input id="end" type="text" inputmode="decimal" placeholder="bis zum Schluss" autocomplete="off" />
+              <button id="take-end" class="button ghost" type="button" aria-label="Aktuelle Position als Ende">Aktuelle Position</button>
+            </span>
+          </div>
+          <fieldset class="options">
+            <legend>Modus</legend>
+            <label class="field check"><input type="radio" name="mode" value="fast" checked /> Schnell, ohne Neukodieren</label>
+            <label class="field check"><input type="radio" name="mode" value="exact" /> Genau, neu kodiert</label>
+          </fieldset>
+          <p id="mode-hint" class="hint"></p>
+          <p id="form-error" class="error" role="alert"></p>
+          <button id="run" class="button" type="submit">Schneiden</button>
+        </form>
+        <p id="engine"></p>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

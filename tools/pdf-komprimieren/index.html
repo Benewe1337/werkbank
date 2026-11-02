@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="PDF-Dateien verkleinern: Bilder herunterrechnen und die Datei aufräumen. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>PDF verkleinern – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>PDF verkleinern</h1>
+      <p class="lede">Rechnet Bilder in PDFs herunter und räumt die Datei auf. <em>Text und Vektoren bleiben scharf.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <fieldset class="options">
+          <legend class="visually-hidden">Einstellungen</legend>
+          <label class="field">
+            Stufe
+            <select id="preset">
+              <option value="stark">stark (96 dpi)</option>
+              <option value="mittel" selected>mittel (150 dpi)</option>
+              <option value="leicht">leicht (220 dpi)</option>
+              <option value="eigene">eigene Werte</option>
+            </select>
+          </label>
+          <label class="field">
+            Bilder höchstens (dpi)
+            <input id="dpi" type="number" min="36" max="600" step="1" value="150" inputmode="numeric" />
+          </label>
+          <label class="field">
+            <span>JPEG-Qualität <output id="quality-out" for="quality">75</output></span>
+            <input id="quality" type="range" min="20" max="95" step="5" value="75" />
+          </label>
+          <label class="field check"><input id="images" type="checkbox" checked /> Bilder neu kodieren</label>
+        </fieldset>
+        <div id="drop"></div>
+        <p id="engine"></p>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

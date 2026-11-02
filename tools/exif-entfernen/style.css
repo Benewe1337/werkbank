@@ -1,0 +1,15 @@
+.job-meta {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.job-meta table.data td:first-child {
+  width: 11rem;
+  color: var(--ink-soft);
+}
+
+.job-meta td {
+  overflow-wrap: anywhere;
+}

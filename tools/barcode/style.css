@@ -1,0 +1,5 @@
+.barcode-preview {
+  width: min(100%, 28rem);
+  image-rendering: pixelated;
+  background: #fff;
+}

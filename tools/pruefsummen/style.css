@@ -1,0 +1,22 @@
+.hashes dd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  font-family: var(--sans);
+}
+
+.hashes dd .button {
+  min-height: 44px;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+}
+
+.hashes dd.is-match .mono {
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.result-item[data-state="error"] .result-meta {
+  color: var(--err);
+}

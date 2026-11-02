@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="QR-Codes und Barcodes mit der Kamera oder aus einem Bild lesen. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>QR-Code lesen – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>QR-Code lesen</h1>
+      <p class="lede">QR-Codes und Barcodes aus einem Bild oder mit der Kamera lesen. <em>Links öffnest du selbst, nichts passiert automatisch.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <div id="drop"></div>
+        <div class="row">
+          <button class="button ghost" type="button" id="camera-start">Kamera starten</button>
+          <button class="button ghost" type="button" id="camera-stop" hidden>Kamera beenden</button>
+          <span id="engine"></span>
+        </div>
+        <div class="stage camera-stage" id="camera" hidden>
+          <video id="video" muted playsinline></video>
+        </div>
+        <p class="hint status-line" id="status" aria-live="polite"></p>
+        <ol class="result-list" id="results"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

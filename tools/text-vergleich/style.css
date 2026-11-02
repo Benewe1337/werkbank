@@ -1,0 +1,120 @@
+/* Texte vergleichen: zwei Eingaben nebeneinander, Ausgabe mit Markierungen. */
+.compare-inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1.5rem;
+}
+
+.compare-inputs .field {
+  color: var(--ink-soft);
+}
+
+.file-pick {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  min-height: 44px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.file-pick input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-pick:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.diff-head {
+  justify-content: space-between;
+}
+
+.diff-summary {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+}
+
+.diff-legend ins,
+.diff-legend del {
+  margin-right: 0.75rem;
+}
+
+.diff {
+  max-height: 36rem;
+  overflow: auto;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background: var(--paper-deep);
+  border-radius: 4px;
+}
+
+.diff ins,
+.diff-legend ins {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--ok);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+  background: color-mix(in srgb, var(--ok) 22%, transparent);
+}
+
+.diff del,
+.diff-legend del {
+  color: var(--ink);
+  text-decoration: line-through;
+  text-decoration-color: var(--err);
+  text-decoration-thickness: 1.5px;
+  background: color-mix(in srgb, var(--err) 18%, transparent);
+}
+
+.diff-words {
+  padding: 1rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.diff-lines {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.diff-lines td {
+  padding: 0 0.5rem;
+  vertical-align: top;
+}
+
+.diff-gutter {
+  width: 1%;
+  color: var(--ink-soft);
+  text-align: right;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.diff-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.diff-lines tr[data-kind="added"] {
+  background: color-mix(in srgb, var(--ok) 10%, transparent);
+}
+
+.diff-lines tr[data-kind="removed"] {
+  background: color-mix(in srgb, var(--err) 9%, transparent);
+}
+
+.diff-lines tr[data-kind] .diff-gutter:nth-child(3) {
+  font-weight: 600;
+}

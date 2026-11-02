@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="iPhone-Fotos im HEIC-Format in JPG oder PNG umwandeln. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>HEIC in JPG – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>HEIC in JPG</h1>
+      <p class="lede">Wandelt iPhone-Fotos in JPG oder PNG um. <em>Serien in einer Datei kommen einzeln heraus.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <fieldset class="options">
+          <legend class="visually-hidden">Einstellungen</legend>
+          <label class="field">
+            Format
+            <select id="format">
+              <option value="jpeg">JPG</option>
+              <option value="png">PNG (verlustfrei)</option>
+            </select>
+          </label>
+          <label class="field grow">
+            <span>Qualität <output id="quality-value"></output></span>
+            <input id="quality" type="range" min="1" max="100" value="90" />
+          </label>
+        </fieldset>
+        <div id="drop"></div>
+        <p class="hint">Kamera- und Ortsangaben aus dem Foto werden nicht übernommen.</p>
+        <div class="row">
+          <button id="again" class="button ghost" type="button">Mit neuen Einstellungen wiederholen</button>
+          <span id="engine"></span>
+        </div>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

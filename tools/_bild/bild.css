@@ -1,0 +1,69 @@
+/* Ergänzungen für die Bild-Werkzeuge. */
+
+/* .button setzt display und schlägt sonst das hidden-Attribut. */
+[hidden] {
+  display: none !important;
+}
+
+.field output {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.field:has(input:disabled) {
+  opacity: 0.5;
+}
+
+/* Größere Vorschau auf Schachbrett (Hintergrund entfernen, SVG, Favicon). */
+.stage img {
+  max-height: 32rem;
+  object-fit: contain;
+}
+
+.compare {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1rem;
+}
+
+.compare figure {
+  margin: 0;
+}
+
+.compare figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+.compare .stage {
+  min-height: 10rem;
+}
+
+/* Hervorgehobene Warnung, z. B. gespeicherte GPS-Position. */
+.alert {
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--accent);
+  background: var(--paper-deep);
+  border-radius: 0 4px 4px 0;
+}
+
+.alert strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--accent-ink);
+}
+
+.alert p {
+  margin: 0.35rem 0 0;
+}
+
+details summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}

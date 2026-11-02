@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Zwei Texte vergleichen und Unterschiede zeilen- oder wortweise markieren. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Texte vergleichen – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>Texte vergleichen</h1>
+      <p class="lede">Zeigt, was sich zwischen zwei Fassungen geändert hat. <em>Zeilen- oder wortweise.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <div class="compare-inputs">
+          <div class="field grow">
+            <label for="before">Original</label>
+            <textarea id="before" spellcheck="false"></textarea>
+            <label class="file-pick">Datei laden<input type="file" id="before-file" accept=".txt,.md,.csv,.json,.xml,.html,.htm,.css,.js,.ts,.py,.java,.tex,.rst,.yml,.yaml,.ini,.log,.srt,.vtt,text/*" /></label>
+          </div>
+          <div class="field grow">
+            <label for="after">Geändert</label>
+            <textarea id="after" spellcheck="false"></textarea>
+            <label class="file-pick">Datei laden<input type="file" id="after-file" accept=".txt,.md,.csv,.json,.xml,.html,.htm,.css,.js,.ts,.py,.java,.tex,.rst,.yml,.yaml,.ini,.log,.srt,.vtt,text/*" /></label>
+          </div>
+        </div>
+        <fieldset class="options">
+          <legend class="visually-hidden">Optionen</legend>
+          <label class="field">
+            Vergleich
+            <select id="mode">
+              <option value="lines">zeilenweise</option>
+              <option value="words">wortweise</option>
+            </select>
+          </label>
+          <label class="field check"><input type="checkbox" id="ignore-case" /> Groß-/Kleinschreibung ignorieren</label>
+          <label class="field check"><input type="checkbox" id="ignore-space" /> Leerzeichen ignorieren</label>
+        </fieldset>
+        <div class="row">
+          <button id="run" class="button" type="button">Vergleichen</button>
+          <span class="hint">oder Strg+Enter</span>
+        </div>
+        <div id="output" class="diff-output" hidden>
+          <div class="row diff-head">
+            <p id="summary" class="diff-summary" role="status"></p>
+            <button id="patch" class="button ghost" type="button">Als .diff herunterladen</button>
+          </div>
+          <p class="hint diff-legend"><ins>hinzugefügt</ins> <del>entfernt</del></p>
+          <div id="result" class="diff"></div>
+        </div>
+        <p id="error" class="error" role="alert" hidden></p>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

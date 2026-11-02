@@ -1,0 +1,17 @@
+#entries td:first-child {
+  word-break: break-all;
+}
+
+#entries td:nth-child(2) {
+  white-space: nowrap;
+}
+
+#entries td:last-child {
+  text-align: right;
+}
+
+#entries .button {
+  min-height: 44px;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+}

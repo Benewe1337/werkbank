@@ -1,0 +1,65 @@
+.page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: 1.25rem 1rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-card {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  background: var(--paper-deep);
+  border-radius: 4px;
+  outline: 1px solid transparent;
+  transition: outline-color 200ms var(--ease), opacity 200ms;
+}
+
+.page-card[draggable="true"] {
+  cursor: grab;
+}
+
+.page-card.dragging {
+  opacity: 0.4;
+}
+
+.page-card.drop-before {
+  outline: 2px solid var(--accent);
+}
+
+.page-thumb {
+  position: relative;
+  aspect-ratio: 1;
+}
+
+/* Absolut positioniert, damit max-height sich auf die quadratische Fläche bezieht. */
+.page-thumb img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.18);
+  background: #fff;
+  transition: rotate 250ms var(--ease);
+}
+
+.page-label {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.page-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.page-tools .icon-button {
+  width: 44px;
+  height: 44px;
+  font-size: 1rem;
+}

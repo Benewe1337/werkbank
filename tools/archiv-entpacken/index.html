@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="ZIP, 7z, RAR, TAR, TAR.GZ und weitere Archive entpacken, einzelne Dateien oder alles als ZIP. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Archive entpacken – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>Archive entpacken</h1>
+      <p class="lede">ZIP, 7z, RAR, TAR und TAR.GZ öffnen. <em>Einzelne Dateien herunterladen oder alles als ZIP.</em></p>
+      <section class="work stack" aria-label="Arbeitsbereich">
+        <div id="drop"></div>
+        <p id="engine"></p>
+        <form id="password-form" class="options" hidden autocomplete="off">
+          <label class="field grow">Passwort des Archivs<input type="password" id="password" autocomplete="off" /></label>
+          <button class="button" type="submit">Entsperren</button>
+        </form>
+        <p class="hint status-line" id="status" aria-live="polite"></p>
+        <p class="error" id="error" role="alert" hidden></p>
+        <div class="row" id="actions" hidden>
+          <button class="button" type="button" id="all">Alles als ZIP herunterladen</button>
+          <span class="hint" id="summary"></span>
+        </div>
+        <div class="table-wrap" id="table-wrap" hidden>
+          <table class="data">
+            <thead><tr><th scope="col">Pfad</th><th scope="col">Größe</th><th scope="col"><span class="visually-hidden">Herunterladen</span></th></tr></thead>
+            <tbody id="entries"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

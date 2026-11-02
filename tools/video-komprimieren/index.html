@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Videos verkleinern: MP4 oder WebM, Qualität und Auflösung wählen, Ton behalten oder entfernen. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Video verkleinern – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>Video verkleinern</h1>
+      <p class="lede">
+        Videos neu kodieren, damit sie kleiner werden.
+        <em>Die Datei bleibt auf deinem Gerät, das braucht etwas Geduld.</em>
+      </p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <div class="options">
+          <label class="field">
+            Format
+            <select id="container"></select>
+          </label>
+          <label class="field">
+            Höchstens
+            <select id="resolution"></select>
+          </label>
+          <label class="field grow">
+            <span>Qualität: <span id="quality-value" class="range-value"></span></span>
+            <input id="quality" type="range" step="1" />
+          </label>
+          <label class="field check"><input id="audio" type="checkbox" checked /> Ton behalten</label>
+        </div>
+        <div id="drop"></div>
+        <p id="engine"></p>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

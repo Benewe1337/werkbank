@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Eine PDF in einzelne Seiten oder Bereiche aufteilen oder Seiten herausziehen. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>PDF aufteilen – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>PDF aufteilen</h1>
+      <p class="lede">Eine PDF in mehrere Dateien zerlegen. <em>Oder nur einzelne Seiten herausziehen.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <fieldset class="options" id="options">
+          <legend class="visually-hidden">Einstellungen</legend>
+          <label class="field">
+            Aufteilen
+            <select id="mode">
+              <option value="single">jede Seite einzeln</option>
+              <option value="every">alle N Seiten</option>
+              <option value="ranges">nach Bereichen</option>
+              <option value="extract">Seiten extrahieren (eine Datei)</option>
+            </select>
+          </label>
+          <label class="field" data-mode="every">
+            Seiten pro Datei
+            <input id="n" type="number" min="1" step="1" value="2" inputmode="numeric" />
+          </label>
+          <label class="field grow" data-mode="ranges">
+            Bereiche, getrennt durch Komma
+            <input id="ranges" type="text" placeholder="1-3, 4-6, 7-" autocomplete="off" />
+          </label>
+          <label class="field grow" data-mode="extract">
+            Seiten
+            <input id="pages" type="text" placeholder="1, 3-5" autocomplete="off" />
+          </label>
+        </fieldset>
+        <div id="drop"></div>
+        <div class="row">
+          <span id="file" class="file-info">Noch keine Datei gewählt.</span>
+          <button id="run" class="button" type="button" disabled>Aufteilen</button>
+          <span id="engine"></span>
+        </div>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

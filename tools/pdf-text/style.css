@@ -1,0 +1,15 @@
+.preview-title {
+  flex: 1 1 12rem;
+  margin: 0;
+  overflow: hidden;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-preview pre {
+  max-height: 32rem;
+  margin-top: 0.75rem;
+}

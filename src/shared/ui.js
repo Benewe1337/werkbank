@@ -162,7 +162,15 @@ export function createJobList(el) {
     return job;
   }
 
-  return { add };
+  /** Leert Liste und ZIP-Sammlung (für einen neuen Durchlauf). */
+  function clear() {
+    results.length = 0;
+    zipBar?.remove();
+    zipBar = null;
+    el.replaceChildren();
+  }
+
+  return { add, clear };
 }
 
 function uniqueName(existing, name) {

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="PDF-Seiten als PNG oder JPG speichern, mit 72, 150 oder 300 dpi. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>PDF in Bilder – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>PDF in Bilder</h1>
+      <p class="lede">Speichert PDF-Seiten als PNG oder JPG. <em>Jede Seite wird ein Bild.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <fieldset class="options">
+          <legend class="visually-hidden">Einstellungen</legend>
+          <label class="field">
+            Format
+            <select id="format">
+              <option value="png">PNG</option>
+              <option value="jpg">JPG</option>
+            </select>
+          </label>
+          <label class="field">
+            Auflösung
+            <select id="dpi">
+              <option value="72">72 dpi (Bildschirm)</option>
+              <option value="150" selected>150 dpi</option>
+              <option value="300">300 dpi (Druck)</option>
+            </select>
+          </label>
+          <label class="field grow">
+            Seiten (leer = alle)
+            <input id="pages" type="text" placeholder="1-3, 7" autocomplete="off" />
+          </label>
+        </fieldset>
+        <div id="drop"></div>
+        <p id="engine"></p>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

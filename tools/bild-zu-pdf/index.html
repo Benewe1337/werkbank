@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="JPG-, PNG- und WebP-Bilder zu einer PDF zusammenstellen, in Bildgröße oder auf A4. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Bilder in PDF – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>Bilder in PDF</h1>
+      <p class="lede">Stellt Bilder zu einer PDF zusammen, ein Bild pro Seite. <em>JPGs bleiben dabei unverändert.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <div id="drop"></div>
+        <ol id="queue" class="queue image-queue"></ol>
+        <fieldset class="options">
+          <legend class="visually-hidden">Einstellungen</legend>
+          <label class="field">
+            Seitengröße
+            <select id="layout">
+              <option value="fit">wie das Bild</option>
+              <option value="a4-hoch">A4 hoch, mit Rand</option>
+              <option value="a4-quer">A4 quer, mit Rand</option>
+            </select>
+          </label>
+        </fieldset>
+        <div class="row">
+          <button id="run" class="button" type="button" disabled>Bilder auswählen</button>
+          <span id="engine"></span>
+        </div>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

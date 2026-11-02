@@ -1,0 +1,130 @@
+/* Ergänzungen für die Video- & Audio-Werkzeuge (Fortschritt, Abbrechen, Videovorschau). */
+
+.job-progress {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 3px;
+  margin-top: 0.75rem;
+  appearance: none;
+  background: var(--hair);
+  border: 0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.job-progress::-webkit-progress-bar {
+  background: var(--hair);
+}
+
+.job-progress::-webkit-progress-value {
+  background: var(--accent);
+  transition: width 300ms var(--ease);
+}
+
+.job-progress::-moz-progress-bar {
+  background: var(--accent);
+}
+
+/* Unbestimmter Fortschritt: ruhig pulsierende Linie statt springender Zahl. */
+.job-progress:indeterminate {
+  background: linear-gradient(90deg, var(--hair) 0 35%, var(--accent) 50%, var(--hair) 65% 100%) 0 0 / 300% 100%;
+  animation: ff-sweep 1.6s linear infinite;
+}
+
+.job-progress:indeterminate::-webkit-progress-bar {
+  background: transparent;
+}
+
+@keyframes ff-sweep {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+.job-cancel {
+  min-height: 44px;
+  padding: 0 1.1rem;
+}
+
+.media-preview {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.media-preview[hidden] {
+  display: none;
+}
+
+.media-preview video {
+  display: block;
+  width: 100%;
+  max-height: 60vh;
+  background: var(--ink);
+  border-radius: 4px;
+}
+
+.media-caption {
+  margin: 0;
+}
+
+/* Zeitfeld mit Knopf „aktuelle Position“ */
+.time-field {
+  display: grid;
+  grid-template-columns: minmax(6rem, 1fr) auto;
+  gap: 0.5rem;
+}
+
+.time-field .button {
+  min-height: 44px;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+}
+
+.options[hidden],
+.field[hidden],
+.result-stage[hidden] {
+  display: none;
+}
+
+fieldset.options legend {
+  margin-bottom: 0.35rem;
+  padding: 0;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+.result-stage {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.result-stage img {
+  justify-self: center;
+  image-rendering: auto;
+}
+
+.range-value {
+  color: var(--ink);
+}
+
+input[type="radio"] {
+  accent-color: var(--accent);
+}
+
+/* Formular über die ganze Breite, Fehlerzeile nimmt nur Platz ein, wenn sie etwas sagt. */
+.options > .error:empty {
+  display: none;
+}
+
+.options > .hint,
+.options > .error {
+  flex: 1 1 100%;
+  margin: 0;
+}
+
+.media-preview + .options {
+  margin-top: 2rem;
+}

@@ -1,0 +1,11 @@
+.image-queue .queue-item {
+  grid-template-columns: 3rem minmax(0, 1fr) auto auto;
+}
+
+.queue-thumb {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  background: repeating-conic-gradient(var(--paper-deep) 0 25%, var(--paper) 0 50%) 0 0 / 10px 10px;
+  border-radius: 3px;
+}

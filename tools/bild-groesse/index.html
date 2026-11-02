@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Bilder auf eine neue Breite und Höhe bringen, in Pixeln oder Prozent. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Bildgröße ändern – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>Bildgröße ändern</h1>
+      <p class="lede">Bringt Bilder auf neue Maße, in Pixeln oder Prozent. <em>Skaliert wird mit Lanczos, das hält Kanten scharf.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <fieldset class="options">
+          <legend class="visually-hidden">Maße</legend>
+          <label class="field">
+            Einheit
+            <select id="unit">
+              <option value="px">Pixel</option>
+              <option value="percent">Prozent</option>
+            </select>
+          </label>
+          <label class="field">
+            Breite
+            <input id="width" type="number" min="1" inputmode="decimal" value="1200" />
+          </label>
+          <label class="field">
+            Höhe
+            <input id="height" type="number" min="1" inputmode="decimal" placeholder="automatisch" />
+          </label>
+          <label class="field check">
+            <input id="keep" type="checkbox" checked />
+            Seitenverhältnis halten
+          </label>
+        </fieldset>
+        <fieldset class="options">
+          <legend class="visually-hidden">Ausgabe</legend>
+          <label class="field">
+            Format
+            <select id="format">
+              <option value="same">wie Eingabe</option>
+              <option value="jpeg">JPG</option>
+              <option value="png">PNG</option>
+              <option value="webp">WebP</option>
+              <option value="avif">AVIF</option>
+            </select>
+          </label>
+          <label class="field grow">
+            <span>Qualität <output id="quality-value"></output></span>
+            <input id="quality" type="range" min="1" max="100" value="85" />
+          </label>
+        </fieldset>
+        <p class="hint" id="size-hint">Mit gehaltenem Seitenverhältnis passt das Bild in den Rahmen aus Breite und Höhe. Ein leeres Feld wird passend berechnet.</p>
+        <div id="drop"></div>
+        <div class="row">
+          <button id="again" class="button ghost" type="button">Mit neuen Einstellungen wiederholen</button>
+          <span id="engine"></span>
+        </div>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

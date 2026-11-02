@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="QR-Codes für Links, WLAN, Kontakte, E-Mail und Telefon erstellen, mit Farben, Formen und Logo. Ohne Werbung, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>QR-Code erstellen – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>QR-Code erstellen</h1>
+      <p class="lede">Für Links, WLAN, Kontakte, E-Mail und Telefon. <em>Als SVG oder PNG, mit eigenen Farben und Logo.</em></p>
+      <section class="work split" aria-label="Arbeitsbereich">
+        <form id="form" class="stack" autocomplete="off">
+          <fieldset class="mode-switch" id="type">
+            <legend>Inhalt</legend>
+            <label><input type="radio" name="type" value="text" checked />Text/Link</label>
+            <label><input type="radio" name="type" value="wifi" />WLAN</label>
+            <label><input type="radio" name="type" value="vcard" />Kontakt</label>
+            <label><input type="radio" name="type" value="email" />E-Mail</label>
+            <label><input type="radio" name="type" value="tel" />Telefon</label>
+          </fieldset>
+
+          <fieldset class="options" data-type="text">
+            <label class="field grow">Text oder Link<textarea class="short" name="text" rows="3">https://</textarea></label>
+          </fieldset>
+
+          <fieldset class="options" data-type="wifi" hidden>
+            <label class="field grow">Netzwerkname (SSID)<input type="text" name="ssid" /></label>
+            <label class="field grow">Passwort<input type="text" name="password" spellcheck="false" /></label>
+            <label class="field">Verschlüsselung
+              <select name="security">
+                <option value="WPA">WPA/WPA2/WPA3</option>
+                <option value="WEP">WEP</option>
+                <option value="nopass">Offen (ohne Passwort)</option>
+              </select>
+            </label>
+            <label class="field check"><input type="checkbox" name="hidden" />Verstecktes Netz</label>
+          </fieldset>
+
+          <fieldset class="options" data-type="vcard" hidden>
+            <label class="field grow">Vorname<input type="text" name="firstName" /></label>
+            <label class="field grow">Nachname<input type="text" name="lastName" /></label>
+            <label class="field grow">Firma<input type="text" name="org" /></label>
+            <label class="field grow">Position<input type="text" name="title" /></label>
+            <label class="field grow">Telefon<input type="tel" name="phone" /></label>
+            <label class="field grow">E-Mail<input type="email" name="email" /></label>
+            <label class="field grow">Website<input type="url" name="url" /></label>
+            <label class="field grow">Straße<input type="text" name="street" /></label>
+            <label class="field">PLZ<input type="text" name="zip" inputmode="numeric" /></label>
+            <label class="field grow">Ort<input type="text" name="city" /></label>
+            <label class="field grow">Land<input type="text" name="country" /></label>
+          </fieldset>
+
+          <fieldset class="options" data-type="email" hidden>
+            <label class="field grow">An<input type="email" name="to" /></label>
+            <label class="field grow">Betreff<input type="text" name="subject" /></label>
+            <label class="field grow">Text<textarea class="short" name="body" rows="3"></textarea></label>
+          </fieldset>
+
+          <fieldset class="options" data-type="tel" hidden>
+            <label class="field grow">Telefonnummer<input type="tel" name="tel" placeholder="+49 40 1234567" /></label>
+          </fieldset>
+
+          <fieldset class="options">
+            <label class="field">Vordergrund<input type="color" name="fg" value="#1f1b16" /></label>
+            <label class="field">Hintergrund<input type="color" name="bg" value="#ffffff" /></label>
+            <label class="field">Module
+              <select name="moduleShape">
+                <option value="square">Quadrat</option>
+                <option value="rounded">Abgerundet</option>
+                <option value="dots">Punkte</option>
+              </select>
+            </label>
+            <label class="field">Eckmarker
+              <select name="finderShape">
+                <option value="square">Quadrat</option>
+                <option value="rounded">Abgerundet</option>
+                <option value="circle">Rund</option>
+              </select>
+            </label>
+            <label class="field">Fehlerkorrektur
+              <select name="ecLevel">
+                <option value="L">L (7 %)</option>
+                <option value="M" selected>M (15 %)</option>
+                <option value="Q">Q (25 %)</option>
+                <option value="H">H (30 %)</option>
+              </select>
+            </label>
+            <label class="field">Rand (Modulbreiten)<input type="number" name="margin" min="0" max="20" value="4" /></label>
+          </fieldset>
+
+          <fieldset class="options">
+            <label class="field grow">Logo in der Mitte (optional)<input type="file" name="logo" accept="image/png,image/jpeg,image/svg+xml,image/webp,image/gif" /></label>
+            <label class="field">Logogröße<input type="range" name="logoSize" min="5" max="16" value="12" step="1" disabled /></label>
+            <button class="button ghost" type="button" id="logo-remove" hidden>Logo entfernen</button>
+          </fieldset>
+          <p class="hint" id="logo-hint" hidden></p>
+        </form>
+
+        <div class="stack">
+          <div class="stage" id="preview" aria-live="polite"></div>
+          <p class="hint status-line" id="info"></p>
+          <p class="warn" id="warning" hidden></p>
+          <p class="error" id="error" role="alert" hidden></p>
+          <div class="row">
+            <label class="field">PNG-Größe
+              <select id="png-size">
+                <option value="256">256 px</option>
+                <option value="512">512 px</option>
+                <option value="1024" selected>1024 px</option>
+                <option value="2048">2048 px</option>
+              </select>
+            </label>
+          </div>
+          <div class="row">
+            <button class="button" type="button" id="download-svg">SVG herunterladen</button>
+            <button class="button ghost" type="button" id="download-png">PNG herunterladen</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="JSON, CSV, YAML und XML ineinander umwandeln, formatieren oder minimieren. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Daten umwandeln – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>Daten umwandeln</h1>
+      <p class="lede">JSON, CSV, YAML und XML ineinander umwandeln. <em>Auch zum Formatieren und Minimieren.</em></p>
+      <section class="work stack" aria-label="Arbeitsbereich">
+        <div id="drop"></div>
+        <form id="form" class="options" autocomplete="off">
+          <label class="field">Eingabe
+            <select id="from">
+              <option value="">automatisch erkennen</option>
+              <option value="json">JSON</option>
+              <option value="csv">CSV</option>
+              <option value="yaml">YAML</option>
+              <option value="xml">XML</option>
+            </select>
+          </label>
+          <label class="field">CSV-Trennzeichen (Eingabe)
+            <select id="delimiter">
+              <option value="">automatisch</option>
+              <option value=",">Komma ,</option>
+              <option value=";">Semikolon ;</option>
+              <option value="&#9;">Tabulator</option>
+              <option value="|">Senkrechter Strich |</option>
+            </select>
+          </label>
+          <label class="field">Ausgabe
+            <select id="to">
+              <option value="json">JSON</option>
+              <option value="csv">CSV</option>
+              <option value="yaml">YAML</option>
+              <option value="xml">XML</option>
+            </select>
+          </label>
+          <label class="field">CSV-Trennzeichen (Ausgabe)
+            <select id="out-delimiter">
+              <option value=",">Komma ,</option>
+              <option value=";">Semikolon ;</option>
+              <option value="&#9;">Tabulator</option>
+            </select>
+          </label>
+          <label class="field check"><input type="checkbox" id="minify" />Minimieren</label>
+          <label class="field check"><input type="checkbox" id="typed" checked />Zahlen erkennen</label>
+        </form>
+        <div class="split">
+          <label class="field">Eingabe<textarea id="input" spellcheck="false" placeholder="Daten einfügen oder oben eine Datei ablegen"></textarea></label>
+          <label class="field">Ergebnis<textarea id="output" spellcheck="false" readonly></textarea></label>
+        </div>
+        <p class="hint status-line" id="status" aria-live="polite"></p>
+        <p class="error" id="error" role="alert" hidden></p>
+        <div class="row">
+          <button class="button" type="button" id="download" disabled>Herunterladen</button>
+          <button class="button ghost" type="button" id="copy" disabled>Kopieren</button>
+        </div>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="PDFs mit Passwort schützen (AES-256) oder den Schutz mit bekanntem Passwort entfernen. Ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>PDF-Passwort – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>PDF-Passwort</h1>
+      <p class="lede">Schützt eine PDF mit Passwort oder entfernt den Schutz. <em>Das Passwort musst du kennen.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <fieldset class="options" id="options">
+          <legend>Was soll passieren?</legend>
+          <div class="choice">
+            <label><input type="radio" name="mode" value="unlock" checked /> Schutz entfernen</label>
+            <label><input type="radio" name="mode" value="protect" /> Mit Passwort schützen</label>
+          </div>
+        </fieldset>
+        <fieldset class="options" id="fields">
+          <legend class="visually-hidden">Passwörter</legend>
+          <label class="field grow" data-mode="unlock">
+            Passwort der PDF
+            <input id="current" type="password" autocomplete="off" />
+          </label>
+          <label class="field grow" data-mode="protect">
+            Passwort zum Öffnen
+            <input id="user" type="password" autocomplete="new-password" />
+          </label>
+          <label class="field grow" data-mode="protect">
+            Passwort wiederholen
+            <input id="repeat" type="password" autocomplete="new-password" />
+          </label>
+          <label class="field grow" data-mode="protect">
+            Besitzer-Passwort (optional)
+            <input id="owner" type="password" autocomplete="new-password" />
+          </label>
+          <label class="field check"><input id="reveal" type="checkbox" /> Passwörter anzeigen</label>
+        </fieldset>
+        <p class="hint" data-mode="unlock">
+          PDFs, die nur Drucken oder Kopieren sperren, lassen sich auch ohne Passwort entsperren.
+        </p>
+        <p class="hint" data-mode="protect">
+          Verschlüsselt mit AES-256. Das Besitzer-Passwort erlaubt später Änderungen am Schutz; ohne Angabe gilt das
+          Passwort zum Öffnen. Kommas sind in Passwörtern nicht möglich.
+        </p>
+        <div id="drop"></div>
+        <p id="engine"></p>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

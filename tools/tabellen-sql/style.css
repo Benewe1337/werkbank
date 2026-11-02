@@ -1,0 +1,33 @@
+textarea.sql {
+  min-height: 9rem;
+}
+
+.schema {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+
+.schema code {
+  font-family: var(--mono);
+}
+
+.schema span {
+  color: var(--ink-soft);
+}
+
+#result td {
+  white-space: pre;
+  max-width: 28rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#result td.null {
+  color: var(--ink-soft);
+  font-style: italic;
+}

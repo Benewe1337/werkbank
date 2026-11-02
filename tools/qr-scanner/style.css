@@ -1,0 +1,16 @@
+.camera-stage {
+  padding: 0;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.camera-stage video {
+  display: block;
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.result-text {
+  margin: 0;
+}

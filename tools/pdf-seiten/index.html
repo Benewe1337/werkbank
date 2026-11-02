@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="PDF-Seiten umsortieren, drehen und löschen, mit Vorschaubildern. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>PDF-Seiten bearbeiten – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>PDF-Seiten bearbeiten</h1>
+      <p class="lede">Seiten umsortieren, drehen oder löschen. <em>Ziehen geht auch.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <div id="drop"></div>
+        <div id="editor" hidden>
+          <div class="row">
+            <span id="file" class="file-info"></span>
+            <button id="reset" class="button ghost" type="button">Zurücksetzen</button>
+            <button id="save" class="button" type="button">Speichern</button>
+          </div>
+          <ol id="pages" class="page-grid" aria-label="Seiten"></ol>
+        </div>
+        <p id="engine"></p>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

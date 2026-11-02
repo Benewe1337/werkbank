@@ -1,0 +1,12 @@
+/* Textausgabe unter einem Job über die volle Breite. */
+.job .text-out {
+  grid-column: 1 / -1;
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.job .text-out .field {
+  width: 100%;
+}

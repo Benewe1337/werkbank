@@ -1,0 +1,44 @@
+.favicon-previews {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.favicon-previews figure {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.favicon-previews img {
+  image-rendering: auto;
+}
+
+.favicon-files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.favicon-files a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+.favicon-heading {
+  margin-bottom: 0;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+}

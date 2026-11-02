@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Aus einem Logo alle Favicons erzeugen: favicon.ico, Apple-Touch-Icon, Manifest und HTML. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Favicon erstellen – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>Favicon erstellen</h1>
+      <p class="lede">Macht aus einem Logo alle Icons, die eine Website braucht. <em>Mit Manifest und fertigem HTML.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <fieldset class="options">
+          <legend class="visually-hidden">Einstellungen</legend>
+          <label class="field grow">
+            Name der Website (für das Manifest)
+            <input id="name" type="text" autocomplete="off" placeholder="z. B. Meine Seite" />
+          </label>
+          <label class="field">
+            <span>Innenabstand <output id="padding-value"></output></span>
+            <input id="padding" type="range" min="0" max="30" value="0" />
+          </label>
+          <label class="field check"><input id="fill" type="checkbox" /> Hintergrund füllen</label>
+          <label class="field">
+            Farbe
+            <input id="color" type="color" value="#ffffff" disabled />
+          </label>
+        </fieldset>
+        <div id="drop"></div>
+        <div class="row">
+          <span id="engine"></span>
+          <span id="status" class="hint" role="status"></span>
+        </div>
+        <p id="error" class="error" role="alert" hidden></p>
+        <div id="result" hidden>
+          <div id="previews" class="stage favicon-previews"></div>
+          <div class="row">
+            <a id="zip" class="button" download="favicon.zip">Alles als ZIP herunterladen</a>
+          </div>
+          <ul id="files" class="favicon-files"></ul>
+          <h2 class="favicon-heading">In den &lt;head&gt; deiner Seite</h2>
+          <pre class="code" id="snippet"></pre>
+          <p><button id="copy" class="button ghost" type="button">HTML kopieren</button></p>
+          <p class="hint">Die Dateien gehören ins Hauptverzeichnis der Website. Ohne Hintergrund bekommt das Apple-Touch-Icon Weiß, weil iOS Transparenz schwarz füllt.</p>
+        </div>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

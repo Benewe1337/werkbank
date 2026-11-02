@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Audio und Video auf Deutsch oder Englisch transkribieren, mit Untertiteln als SRT und VTT. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Audio transkribieren – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>Audio transkribieren</h1>
+      <p class="lede">
+        Macht aus Sprachaufnahmen und Videos Text und Untertitel.
+        <em>Mit Whisper, direkt auf deinem Rechner.</em>
+      </p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <div id="drop"></div>
+        <fieldset class="options">
+          <legend class="visually-hidden">Optionen</legend>
+          <label class="field">
+            Sprache
+            <select id="lang">
+              <option value="german">Deutsch</option>
+              <option value="english">Englisch</option>
+              <option value="auto">automatisch erkennen</option>
+            </select>
+          </label>
+        </fieldset>
+        <p class="hint" id="engine-row">
+          Das Sprachmodell (Whisper base, rund 90 MB mit Laufzeit) wird erst geladen, wenn du eine Datei ablegst.
+          Die Erkennung rechnet auf deinem Prozessor. Auf schnellen Rechnern geht das deutlich schneller als die Aufnahme lang ist, auf älteren Geräten kann es länger dauern.
+        </p>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

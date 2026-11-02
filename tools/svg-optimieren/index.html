@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="SVG-Grafiken mit SVGO verkleinern, mit Vorher-Nachher-Vergleich. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>SVG optimieren – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>SVG optimieren</h1>
+      <p class="lede">Entfernt Ballast aus SVG-Dateien. <em>Die Grafik sieht danach gleich aus.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <fieldset class="options">
+          <legend class="visually-hidden">Einstellungen</legend>
+          <label class="field">
+            Nachkommastellen
+            <select id="precision">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </label>
+          <label class="field check"><input id="multipass" type="checkbox" checked /> Mehrere Durchgänge</label>
+          <label class="field check"><input id="pretty" type="checkbox" /> Lesbar einrücken</label>
+        </fieldset>
+        <div id="drop"></div>
+        <details id="paste">
+          <summary>Oder SVG-Code einfügen</summary>
+          <label class="field">
+            SVG-Code
+            <textarea id="code" spellcheck="false" placeholder="&lt;svg …&gt;"></textarea>
+          </label>
+          <p><button id="run-code" class="button" type="button">Code optimieren</button></p>
+        </details>
+        <div id="compare" class="compare" hidden>
+          <figure>
+            <div class="stage"><img id="before" alt="SVG vorher" /></div>
+            <figcaption id="before-caption">Vorher</figcaption>
+          </figure>
+          <figure>
+            <div class="stage"><img id="after" alt="SVG nachher" /></div>
+            <figcaption id="after-caption">Nachher</figcaption>
+          </figure>
+        </div>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

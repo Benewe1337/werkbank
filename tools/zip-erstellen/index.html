@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Dateien und ganze Ordner zu einer ZIP-Datei packen, mit wählbarer Kompression. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>ZIP erstellen – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>ZIP erstellen</h1>
+      <p class="lede">Dateien und ganze Ordner zu einer ZIP-Datei packen. <em>Die Ordnerstruktur bleibt erhalten.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <div id="drop"></div>
+        <div class="row">
+          <span class="secondary-pick">
+            <span class="button ghost" aria-hidden="true">Ordner auswählen</span>
+            <input type="file" id="folder" webkitdirectory multiple aria-label="Ordner auswählen" />
+          </span>
+          <span class="hint" id="summary"></span>
+        </div>
+        <ol id="queue" class="queue"></ol>
+        <form class="options" id="form" autocomplete="off">
+          <label class="field grow">Dateiname<input type="text" id="name" value="archiv.zip" /></label>
+          <label class="field"><span>Kompression: <output id="level-out">6</output></span><input type="range" id="level" min="0" max="9" value="6" /></label>
+        </form>
+        <p class="hint">0 speichert nur (am schnellsten), 9 packt am kleinsten. Bilder, Videos und Archive werden nicht noch einmal komprimiert.</p>
+        <div class="row">
+          <button id="run" class="button" type="button" disabled>Dateien auswählen</button>
+          <button id="clear" class="button ghost" type="button" hidden>Liste leeren</button>
+        </div>
+        <progress class="progress" id="progress" max="1" value="0" hidden></progress>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
