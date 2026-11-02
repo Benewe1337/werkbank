@@ -1,6 +1,5 @@
 // Passwortschutz für die ganze Seite (läuft als Vercel Routing Middleware, siehe /middleware.js).
 // Ohne gültiges Cookie: Weiterleitung auf /login/. POST /login prüft das Passwort und setzt das Cookie.
-import { next } from "@vercel/functions";
 import { safeNext } from "./gate-shared.js";
 
 export { safeNext };
@@ -10,6 +9,14 @@ export const MAX_AGE = 60 * 60 * 24 * 30; // 30 Tage
 const FAIL_DELAY_MS = 600; // bremst Durchprobieren
 
 const encoder = new TextEncoder();
+
+/**
+ * Anfrage normal weiterreichen (wie `next()` aus @vercel/functions, das nur diesen Header setzt).
+ * Bewusst ohne das Paket: Es zieht über @vercel/oidc ein verwundbares zod mit.
+ */
+export function next() {
+  return new Response(null, { headers: { "x-middleware-next": "1" } });
+}
 
 /** Cookie-Wert: HMAC-SHA256(secret, password). Ändert sich das Passwort, verfallen alle Cookies. */
 export async function token(password, secret) {
