@@ -12,7 +12,7 @@ const partial = (name) => fs.readFileSync(path.join(root, "src/partials", `${nam
  */
 function toolInputs() {
   const only = process.env.TOOLS?.split(",").map((s) => s.trim()).filter(Boolean);
-  const inputs = { main: path.join(root, "index.html") };
+  const inputs = { main: path.join(root, "index.html"), login: path.join(root, "login", "index.html") };
   for (const tool of loadTools(root)) {
     if (only && !only.includes(tool.id)) continue;
     inputs[tool.id] = path.join(root, "tools", tool.id, "index.html");

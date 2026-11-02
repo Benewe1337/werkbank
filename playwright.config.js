@@ -11,7 +11,12 @@ export default defineConfig({
   timeout: 120_000,
   expect: { timeout: 60_000 },
   fullyParallel: true,
-  use: { baseURL: remote ?? `http://localhost:${port}` },
+  globalSetup: "./tests/e2e/global-setup.js",
+  use: {
+    baseURL: remote ?? `http://localhost:${port}`,
+    // Gegen Vercel liegt alles hinter dem Passwortschutz: Sitzung aus global-setup.js verwenden.
+    storageState: remote ? "test-results/.auth/state.json" : undefined,
+  },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
   webServer: remote ? undefined : {
     command: dev

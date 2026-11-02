@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Werkbank</title>
+  </head>
+  <body class="home">
+    <main class="page login">
+      <h1>Werkbank</h1>
+      <form class="login-form" method="post" action="/login">
+        <input type="hidden" name="next" id="next" value="/" />
+        <label class="field" for="password">Passwort
+          <input id="password" name="password" type="password" autocomplete="current-password" required autofocus />
+        </label>
+        <button class="button" type="submit">Öffnen</button>
+        <p id="fehler" class="error" role="alert" hidden>Falsches Passwort.</p>
+      </form>
+    </main>
+    <script type="module" src="/src/login.js"></script>
+  </body>
+</html>
