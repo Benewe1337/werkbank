@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Mehrere PDF-Dateien zu einer verbinden. Ohne Werbung, ohne Upload, läuft im Browser." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>PDFs zusammenfügen – Werkbank</title>
+  </head>
+  <body>
+    <!--header-->
+    <main class="page">
+      <h1>PDFs zusammenfügen</h1>
+      <p class="lede">Mehrere PDFs zu einer Datei verbinden. <em>Die Reihenfolge legst du fest.</em></p>
+      <section class="work" aria-label="Arbeitsbereich">
+        <div id="drop"></div>
+        <ol id="queue" class="queue"></ol>
+        <div class="row">
+          <button id="run" class="button" type="button" disabled>Mindestens zwei PDFs auswählen</button>
+          <span id="engine"></span>
+        </div>
+        <ol id="jobs"></ol>
+      </section>
+    </main>
+    <!--footer-->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

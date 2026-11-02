@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-*/
+.vercel/
+.env*
+test-results/
+playwright-report/
+.ecc/
+Project.md
+*.local
+.DS_Store
+public/models/
+public/vendor/
